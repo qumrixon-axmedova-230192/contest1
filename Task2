@@ -1,0 +1,18 @@
+def typeBasedTransformer(**kwargs):
+    transformed_dict = {}
+    
+    for key, value in kwargs.items():
+        if isinstance(value, (int, float)):
+            transformed_dict[key] = value ** 2
+        elif isinstance(value, str):
+            transformed_dict[key] = value[::-1]
+        elif isinstance(value, bool):
+            transformed_dict[key] = not value
+        elif isinstance(value, (list, tuple)):
+            transformed_dict[key] = value[::-1]
+        elif isinstance(value, dict):
+            transformed_dict[key] = {v: k for k, v in value.items()}
+        else:
+            transformed_dict[key] = value
+    
+    return transformed_dict
