@@ -1,0 +1,36 @@
+import random
+from task1 import kwargsAcceptFun
+from task2 import typeBasedTransformer
+from task3 import decorator_1
+
+@decorator_1
+def func():
+    print("I am ready to Start")
+    
+    result_sum = 0
+    n = random.randint(10, 751)
+    
+    for i in range(n):
+        result_sum += (i**2)
+    
+    return result_sum
+
+@decorator_1
+def funx(n=2, m=5):
+    print("I am ready to do serious stuff")
+    
+    max_value = float('-inf')
+    
+    n = random.randint(10, 751)
+    
+    res_list = [pow(i, 2) for i in range(n)]
+    
+    for i in res_list:
+        if i > max_value: 
+            max_value = i
+    
+    return max_value
+
+if __name__ == "__main__": 
+    func()
+    funx()
